@@ -1,0 +1,5 @@
+USER Anonymous
+PASS
+PORT
+RETR Makefile
+QUIT

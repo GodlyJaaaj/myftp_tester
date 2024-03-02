@@ -186,7 +186,9 @@ class Client:
                     self.handle_PORT()
                 case _:
                     print(f"{colorama.Fore.RED}UNKNOWN COMMAND {command}"
-                          f"{colorama.Style.RESET_ALL}")
+                          f"{colorama.Style.RESET_ALL}", end="")
+                    self.send_command(command)
+                    self.get_and_show_response()
         except BaseException as e:
             raise e
 

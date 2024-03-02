@@ -72,7 +72,6 @@ class Client:
             print(f"{colorama.Fore.RED}WRONG PARAMS: {pasv_mode}"
                   f"{colorama.Style.RESET_ALL}")
             raise ValueError
-        # print(f"{colorama.Fore.LIGHTBLUE_EX}PASV MODE: {pasv_mode}")
         self.data_host = ".".join(pasv_mode[:4])
         self.data_port = int(pasv_mode[4]) * 256 + int(pasv_mode[5])
 
@@ -187,7 +186,8 @@ class Client:
                 case "PORT":
                     self.handle_PORT()
                 case _:
-                    print(f"{colorama.Fore.RED}UNKNOWN COMMAND")
+                    print(f"{colorama.Fore.RED}UNKNOWN COMMAND {command}"
+                          f"{colorama.Style.RESET_ALL}")
         except BaseException as e:
             raise e
 
@@ -254,7 +254,7 @@ def start_client(host, port, file):
         client.connect_to_server()
     except ConnectionError:
         print(
-            f"{colorama.Fore.RED}PROCESS {multiprocessing.current_process().name} COULD NOT "
+            f"{colorama.Fore.RED}COULD NOT "
             f"CONNECT TO SERVER{colorama.Style.RESET_ALL}")
         return
     time.sleep(0.1)

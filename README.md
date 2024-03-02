@@ -34,7 +34,6 @@ This program uses the following Python libraries:
 
 - `os`
 - `socket`
-- `multiprocessing`
 - `sys`
 - `threading`
 - `time`

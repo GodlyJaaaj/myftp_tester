@@ -110,8 +110,12 @@ class Client:
             self.response, self.remaining = self.get_reponse()
         except socket.timeout as e:
             raise e
-        print(f"{colorama.Fore.WHITE}R: [{self.response.decode().strip()}]"
-              f"{colorama.Style.RESET_ALL}")
+        try:
+            print(f"{colorama.Fore.WHITE}R: [{self.response.decode().strip()}]"
+                  f"{colorama.Style.RESET_ALL}")
+        except UnicodeDecodeError:
+            print(f"{colorama.Fore.RED}[DECODE_ERR] R: [{self.response}]"
+                  f"{colorama.Style.RESET_ALL}")
         return self.response, self.remaining
 
     def check_connection(self):

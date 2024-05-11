@@ -1,6 +1,6 @@
-<span style="color:red">
-outdated
-</span>
+```diff
+- outdated
+```
 
 
 # FTP Client
